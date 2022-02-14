@@ -18,5 +18,19 @@ jobs:
       - name: Check directory
         run: ls -al
 
-      # 설치 해야함...
+      # 필요 환경/프레임워크/언어 설치
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      # 필요 소프트웨어 패키지 설치
+      - name: Install pip, pytest
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+
       # 파이썬 유닛테스트 돌리기
+      - name: Run my unittest
+        run: |
+          pytest
