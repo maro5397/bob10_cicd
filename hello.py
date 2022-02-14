@@ -2,7 +2,7 @@ class Hello:
     def say(self):
         print("Hello world")
     def add(self, x, y):
-        #print("x+y=", x + y)
+        print("test starttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt")
         a = x
         b = y
         return a+b
@@ -11,4 +11,4 @@ class Hello:
 if __name__ == "__main__":
     h = Hello()
     h.say()
-    print(h.add(2, 3))
+    print(h.add(2,3))
