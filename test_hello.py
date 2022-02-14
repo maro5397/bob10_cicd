@@ -1,18 +1,21 @@
 from unittest import TestProgram
+import unittest
 import hello
 
-class TestHello():
-    def test_add(self):
+class TestHello(unittest.TestCase):
+    def test_add_positive(self):
         h = hello.Hello()
-        if h.add(2,3) != 5:
-            print('FAILED')
-            exit(1)
-        print('PASS')
-        if h.add(2,5) != 7:
-            print('FAILED')
-            exit(1)
-        print('PASS')
+        result = h.add(2, 3)
+        self.assertEqual(result, 5)
+        result = h.add(2, 5)
+        self.assertEqual(result, 7)
+        
+    def test_add_negative(self):
+        h = hello.Hello()
+        result = h.add(-2, 3)
+        self.assertEqual(result, 1)
+        result = h.add(-2, -5)
+        self.assertEqual(result, -7)
         
 if __name__ == "__main__":
-    test = TestHello()
-    test.test_add()
+    unittest.main()
