@@ -1,7 +1,7 @@
 class Hello:
     def say(self):
         print('hello, world')
-
+    
     def add(self, x, y):
         # print("x+y=", (x+y))
         a = x
