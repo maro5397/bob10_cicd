@@ -1,4 +1,4 @@
-name: CI-BoB-Unitest
+name: CI-BOB-Unitest
 
 on:
   push:
@@ -9,17 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.5, 3.6, 3.7, 3.8]
-    
-    steps:
-      # 우리코드 체크아웃
-      - uses: actions/checkout@v2
+        python-version: [3.7, 3.8]
 
-      # 우리코드 돌릴 것
-      - name: Run pwd
-        run: pwd
-      - name: Check directory
-        run: ls -al
+    steps:
+      # 우리코드 체크아웃(가상머신에 우리코드 다운로드 (git clone))
+      - name: Checkout my code
+        uses: actions/checkout@v2
 
       # 필요 환경/프레임워크/언어 설치
       - name: Setup python
@@ -33,13 +28,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
           pip install flake8
-
       # 코드 가독성/일관성 향상
       - name: Linting with flake8
         run:
-          flake8 . --count --max-complexity=10 --max-line-length=127 --statistics
+          flake8 
 
-      # 파이썬 유닛테스트 돌리기
+      # 파이썬 유닛테스를 돌려야함
       - name: Run my unittest
-        run: |
+        run:
           pytest
