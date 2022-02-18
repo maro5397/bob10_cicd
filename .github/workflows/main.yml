@@ -49,7 +49,7 @@ jobs:
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        image: lovehyun/flask-app-auto
+        image: reindeer002/flask-eg
         tags: 1.0, latest
         registry: docker.io
         dockerfile: flask/Dockerfile
